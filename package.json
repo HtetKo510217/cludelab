@@ -31,7 +31,11 @@
 		"imagemin-pngquant": "^8.0.0",
 		"uglify-save-license": "^0.4.1"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"gulp-babel": "^8.0.0"
+	},
 	"browserslist": [
 		"last 2 versions",
 		"Explorer 11",

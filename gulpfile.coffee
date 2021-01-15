@@ -23,6 +23,7 @@ mmq = require "gulp-merge-media-queries" #メディアクエリ調整
 concat = require "gulp-concat" #ファイル結合
 rename = require "gulp-rename"; #リネーム
 coffee = require "gulp-coffee"; #coffeeコンパイル
+babel = require('gulp-babel'); #babel
 
 browsersync = require "browser-sync" #ブラウザリロード
 connect = require "gulp-connect-php" #PHP
@@ -47,7 +48,7 @@ compileIndexFileAdmin = (done) ->
 baseCompileIndexFile = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/index.+(html|php)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path
 		.pipe usemin
 			css: [cssmin()]
@@ -76,14 +77,14 @@ moveTempleteFileZh = (done) ->
 baseMoveTempleteFile = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/**/*.+(html|php)", "!"+p_input_path+"/index.+(html|php)", "!"+p_input_path+"/admin/index.+(html|php)", "!"+p_input_path+"/**/php/**/*.+(html|php)", "!"+p_input_path+"/ja/**/*.+(html|php)", "!"+p_input_path+"/en/**/*.+(html|php)", "!"+p_input_path+"/zh/**/*.+(html|php)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path
 		.pipe gulp.dest p_output_path
 		.pipe browsersync.stream()
 baseMoveTempleteFileOther = (p_input_path, p_output_path, p_lang)->
 	gulp.src [p_input_path+"/"+p_lang+"/**/*.+(html|php)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path+"/"+p_lang
 		.pipe gulp.dest p_output_path+"/"+p_lang
 		.pipe browsersync.stream()
@@ -100,7 +101,7 @@ movePHPFileAdmin = (done) ->
 baseMovePHPFile = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/php/**/*.+(html|php)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path+"/php"
 		.pipe gulp.dest p_output_path+"/php"
 		.pipe browsersync.stream()
@@ -118,7 +119,7 @@ baseMoveSubFile = (p_input_path, p_output_path, p_type)->
 	for type in p_type
 		gulp.src [p_input_path+"/"+assets_path+"/"+type+"/**/*"]
 			.pipe plumber
-				errorHandler: notify.onError "Error: <%= error.message %>"
+				errorHandler: notify.onError "Error: <%= error %>"
 			.pipe changed p_output_path+"/"+assets_path+"/"+type
 			.pipe gulp.dest p_output_path+"/"+assets_path+"/"+type
 			.pipe browsersync.stream()
@@ -135,7 +136,7 @@ compileImageAdmin = (done) ->
 baseCompileImage = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/"+assets_path+"/img/**/*.+(png|jpg|jpeg|gif|svg|ico)", "!"+p_input_path+"/"+assets_path+"/img/**/*_nc.+(png|jpg|jpeg|gif|svg|ico)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path+"/"+assets_path+"/img"
 		.pipe imagemin(
 			[
@@ -159,7 +160,7 @@ moveImageAdmin = (done) ->
 baseMoveImage = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/"+assets_path+"/img/**/*_nc.+(png|jpg|jpeg|gif|svg|ico)"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path+"/"+assets_path+"/img"
 		.pipe gulp.dest p_output_path+"/"+assets_path+"/img"
 		.pipe browsersync.stream()
@@ -176,7 +177,7 @@ complileScssAdmin = (done) ->
 baseComplileScss = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/"+assets_path+"/css/common.scss", p_input_path+"/"+assets_path+"/css/pc.scss", p_input_path+"/"+assets_path+"/css/sp.scss"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		#scssコンパイル
 		.pipe sass()
 		#cssベンダープレフィックス付与
@@ -205,7 +206,7 @@ baseComplileScss = (p_input_path, p_output_path)->
 
 	gulp.src [p_input_path+"/"+assets_path+"/css/**/*.scss", "!"+p_input_path+"/"+assets_path+"/css/common.scss", "!"+p_input_path+"/"+assets_path+"/css/pc.scss", "!"+p_input_path+"/"+assets_path+"/css/sp.scss"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		#scssコンパイル
 		.pipe sass()
 		#cssベンダープレフィックス付与
@@ -239,13 +240,16 @@ complileCoffeeAdmin = (done) ->
 baseCompileCoffee = (p_input_path, p_output_path)->
 	gulp.src [p_input_path+"/"+assets_path+"/js/**/*.coffee"]
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		#js結合
 		#.pipe concat "main.js"
 		# coffeeコンパイル
 		.pipe coffee()
 		.pipe gulp.dest p_output_path+"/"+assets_path+"/tmp/js"
 		#js圧縮
+		.pipe(babel({
+			"presets": ["@babel/preset-env"]
+		}))
 		.pipe uglify()
 		.pipe rename
 			suffix: ".min"
@@ -264,7 +268,7 @@ moveJSAdmin = (done) ->
 baseMoveJS = (p_input_path, p_output_path)->
 	gulp.src p_input_path+"/"+assets_path+"/js/**/*.js"
 		.pipe plumber
-			errorHandler: notify.onError "Error: <%= error.message %>"
+			errorHandler: notify.onError "Error: <%= error %>"
 		.pipe changed p_output_path+"/"+assets_path+"/js"
 		.pipe gulp.dest p_output_path+"/"+assets_path+"/js/"
 		.pipe browsersync.stream()

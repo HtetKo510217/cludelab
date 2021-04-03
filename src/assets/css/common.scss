@@ -161,7 +161,9 @@ body {
 
 html {
 	width: 100%;
-	overscroll-behavior: none;
+	overscroll-behavior: smooth;
+	margin: 0px !important;
+	padding: 0px !important;
 }
 
 input,
@@ -215,3 +217,260 @@ strong{
 img {
 	max-width: 100%;
 }
+
+/*---------------------------------------------------------------------------------
+	Header
+----------------------------------------------------------------------------------*/
+.headerMenu {
+	width: 100%;
+	background-color: #000000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+	height: 100px;
+	transition: .8s;
+	// border: 1px solid red;
+		.logo {
+			display: flex;
+			position: relative;
+			pointer-events: auto;
+			.one {
+				img {
+					width: 35px;
+					position: relative;
+					top: 30%;
+					left: 30%;
+				}
+			}
+			.two {
+				img {
+					width: 93px;
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			width: 100%;
+			pointer-events: auto;
+			align-items: center;
+			justify-content: center;
+			li {
+				padding: 0px 22px;
+				padding-top: 6px;
+				a {
+					color: #FDFDFD;
+					text-transform: uppercase;
+					font-size: 16px;
+					font-weight: 300;
+
+					&:hover {
+						color:#707070;
+					}
+				}
+			}
+		}
+	
+	.hideMenu {
+		display: none;
+	}
+	/*------*/
+	.hamburgerMenuContainer {
+		margin-right: 20px;
+		cursor: pointer;
+		pointer-events: auto;
+		.hamburger {
+					display: block;
+					width: 30px;
+					height: 2px;
+					margin: 5px 0px;	
+		}
+		span {
+			display: block;
+			background: #fff;
+		}
+		.middle {
+			width: 20px;
+		}
+		.top{
+			transition: opacity .5s ease;
+		}
+		.hideMiddleTag {
+			opacity: 0;
+		}
+		.rotatePlus {
+			transform: rotate(45deg) translate(0px, 5px);
+		}
+		.rotateMinus {
+			transform: rotate(-45deg) translate(5px,-10px) ;
+		}
+		.top,
+		.middle,
+		.bottom{
+			transition: all .5s ease;
+		}
+
+	}
+	.clickShowMenu {
+		width: 100%;
+		opacity: 0;
+		position: absolute;
+		left:0px;
+		top: 90px;
+		// z-index: 10;
+		transition: all 0.25s ease-in-out;
+		display: flex;
+		flex-direction: column;
+
+		div {
+			img {
+				width: 100%;
+				height:100vh;
+			}
+		}
+
+		ul {
+			height: 95vh;
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			top: 30px;
+			left: 20px;
+			z-index: 4;
+			align-items: flex-start;
+			justify-content: start;
+			pointer-events: none;
+			li {
+				padding: 30px 0px;
+				a {
+					font-size: 28px;
+					font-weight: 700;
+				}
+				a:hover {
+					color: #707070;
+				}
+			}
+		}
+		
+	}
+	.showMenu {
+		opacity: 1;
+		ul {
+			pointer-events:auto;
+		}
+	}
+	.clickHideMenu {
+		transition: all .5s ease-in;
+	}	
+}
+.changeStyle {
+	position: fixed;
+	top: 0px;
+	height: 60px;
+	// z-index: 4;
+	// border: 1px solid red;
+	ul {
+		li {
+			a {
+				font-size: 12px;
+			}
+		}
+	}
+	.clickShowMenu {
+		top: 50px;
+	}
+}
+/*----------------------------------------------------------------------------
+Footer
+--------------------------------------------------------------------------*/
+.footerContainer {
+	position: relative;
+	z-index: 2;
+	// pointer-events: none;
+	// border: 1px solid red;
+	.upperContainer {
+			background: #211919;
+			height: 200px;
+			.logo {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// position: relative;
+				cursor: pointer;
+				// border: 1px solid red;
+				// width: 50%;
+				.one {
+					// cursor: pointer;
+					img {
+						width: 34px;
+					}
+				}
+			}
+			ul {
+				display: flex;
+				justify-content: center;
+
+				li {
+					a {
+						font-size: 12px;
+						color: #fff;
+						text-transform: uppercase;
+						padding: 0 20px;
+						&:hover {
+							color:#707070;
+						}
+					}
+				}
+			}
+
+		}
+		.copyRight {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: 10px;
+			height: 50px;
+			background: url("../img/top/copy_right.png")no-repeat;
+			background-size: 100%;
+		}
+}
+
+/*----------------------------------------------------------
+return to top
+----------------------------------------------------------*/
+	#return_top {
+		position: fixed;
+		z-index: 3;
+		right: 0px;
+		bottom: 0px;
+		transition: transform 0.35s;
+		transform: translate3d(0, 420%, 0);
+		text-align: center;
+		transition: all 0.7s ease-out;
+		a {
+			position: relative;
+			display: block;
+			width: 49px;
+			height: 49px;
+			background-color: #352E2E;
+			background: url("../img/top/bom_to_top.png") no-repeat center;
+			background-size: 30px;
+			border: 1px solid #fff;
+
+			span {
+				font-size: 5px;
+				color: #fff;
+				position: relative;
+				top: 20px;
+			}
+		}
+	}
+	#return_top:hover {
+		opacity: 0.8;
+	}
+	#return_top.active {
+		transform: translate3d(0, -100px, 0);
+	}

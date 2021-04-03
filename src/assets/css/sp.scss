@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 960px) {
 	/*-------------------------------------
 	Common
 	---------------------------------------*/
@@ -8,6 +8,646 @@
 
 	.spOnly {
 		display: block !important;
+	}
+	// #ctArea {
+	// 	width: 375px;
+
+	// }
+	html,
+  	body{
+		width:100%;
+		// border: 1px solid red;
+  	  	overflow-x:hidden;
+ 	 }
+	/*---------------------------------
+	Header
+	----------------------------------*/
+	header {
+		width: 100%;
+		height: 100%;
+		background: url("../img/top/sp_slider.png")no-repeat;
+		background-size: 100%;
+		margin-bottom: 20px;
+		display: flex;
+		.headerMenu {
+			width: 100%;
+			height: 40px;
+			position: fixed;
+			top: -1px;
+			// z-index: 4;
+			.logo {
+				display: none;
+			}
+			.clickHideMenu {
+				display: none;
+			}
+			.clickShowMenu {
+				width: 100%;
+				top: 40px;
+				div {
+					img {
+						width: 100%;
+						// height: 630px;
+					}
+				}
+				ul {
+					li {
+						padding: 5vh 0px;
+					}
+				}
+			}
+			.container {
+				width: 80%;
+				.hamburgerMenuContainer {
+					position: absolute;
+					right: 0px;
+					top:10px;
+					span {
+						z-index: 10px;
+					}
+				}
+			}
+		}
+		.changeStyle {
+			height: 50px;
+		}
+	}	
+
+	/*----------------------------------------
+	Slider
+	----------------------------------------*/
+		.sliderContainer {
+			height: 0px;
+			.sliderImg {
+				display: none;
+			}
+			.fixedImageContainer {
+				top:-380px;
+				// z-index: 1;
+				.two {
+					top: -35px;
+				}
+			}
+		}
+
+	/*-------------------------------------
+	Business
+	--------------------------------------*/
+	.business {
+			width: 95%;
+			padding-top: 40px;
+			margin: 0 auto;
+			.businessTitle {
+				width: 90%;
+				height: 124px;
+
+				.titleText {
+					font-size: 24px;
+					letter-spacing: 8px;
+					padding-bottom: 30px;
+				}
+				p {
+					font-size: 18px;
+					span {
+						display: block;
+					}
+				}
+			}
+			.businessText {
+				width: 90%;
+				height: 254px;
+				margin: 0 auto;
+				 p {
+					 font-size: 16px;
+					 line-height: 1.9rem;
+					letter-spacing: 0px;
+					 span {
+						 display: block;
+					 }
+				 }
+				 .middleText {
+					 padding-top: 30px;
+				 }
+			}
+		}
+	/*-------------------------------------------
+	Product,Company  and (peek,reny and pc screw) 
+	---------------------------------------------*/
+		.product,
+		.company,
+		.screw {
+			width: 100%;
+			position: relative;
+			div {
+				img {
+				width: 100%;
+				height: 375px;
+				}
+			}
+			h1 {
+				width: 100%;
+				font-size: 24px;
+				letter-spacing: 2px;
+				text-align: center;
+			}
+		}
+
+	/*---------------------------------
+	Three Material
+	---------------------------------*/
+	.materialContainer {
+		width: 95%;
+		height: auto;
+		margin: 0 auto;
+		.titleText {
+			font-size: 22px;
+			font-weight: 300;
+			width: 70%;
+		}
+		.threeMaterial {
+			width: 100%;
+			margin-top: 20px;
+			flex-wrap: wrap;
+			.peak,
+			.reny,
+			.pc {
+				width: 100%;
+				// height: 432px;
+				margin:15px auto;
+				div {
+					width: 100%;
+					img {
+						width: 100%;
+						// height: 355px;
+						text-align: center;
+						// border: 1px solid red;
+					}
+				}
+				.imgText {	
+					top: 45%;
+					h1 {
+						&:after {
+						top: 60%;
+						width: 50%;
+						}
+					}
+					span {
+						letter-spacing: 3px;
+					}
+				}
+
+				button {
+					width: 100%;
+					height: 68px;
+					top: 15px;
+				}
+			}
+			.reny {
+				.imgText {
+					h1 {
+						&:after {
+							top: 50%;
+						}
+					}
+				}
+			}
+			.pc {
+				.imgText {
+					width: 100%;
+				}
+				button {
+					margin-bottom: 15px;
+				}
+			}
+		}
+		}
+
+	/*----------------------------------
+	Peek , Reny and Pc Screw text only
+	----------------------------------*/
+	.screwContainer {
+		.textOnly {
+			width: 95%;
+			margin: 0px auto; 
+			height: 90%;
+			margin-bottom: 40px;
+			p {
+				letter-spacing: 5px;
+			}
+		}
+	}
+
+	/*--------------------------------------
+	Three colum image all in one
+	---------------------------------------*/
+	.imgContainer {
+	width: 95%;
+	margin: 0px auto;
+	.colImg {
+		width: 100%;
+		// padding-bottom: 40px;
+		height: 355px;
+		img {
+			width: 100%;
+			height: 355px;
+			// margin: 0 auto ;
+		}
+		button {
+			width: 95%;
+			height: 52px;
+			position: relative;
+			left: 2%;
+			bottom: 60px;
+			background-color: #464646;
+			outline: none;
+		}
+	}
+	.pdfBtn {
+		width: 100%;
+		height: 80px;
+		margin: 0 auto;
+		margin-top: 40px;
+		// display: none;
+	}
+	}
+
+	/*----------------------------------
+	Form Box
+	----------------------------------*/
+	.textForm {
+	padding-top: 30px;
+	width: 95%;
+	margin: 0 auto;
+	.formBoxContainer {
+		width: 100%;
+		border: none;
+		box-shadow: none;
+		.formBoxCover {
+			width: 100%;
+			top: 0px;
+			margin: 0px;
+			.formBox {
+				display: block;
+				width: 100%;
+				text-align: center;
+				.leftText {
+					width: 100%;
+					padding-bottom: 15px;
+				}
+				.rightText {
+					width: 100%;
+				}
+			}
+		}
+	}
+	}
+	/*----------------------------------------------------------
+	Top to bottom
+	------------------------------------------------------------*/
+	header {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	height: 100vh;
+	#top_to_bottom {
+		position: absolute;
+		top: 75%;
+		left: 0px;
+		right: 0px;
+		margin: auto;
+		z-index: 2;
+		width: 48px;
+		height: 52px;
+		cursor: pointer;
+		padding-top: 0px;
+		a {
+			display: block;
+			background: url("../img/top/top_to_bom.png") no-repeat center;
+			span {
+				font-size: 12px;
+				color: #fff;
+				position: relative;
+				top: 30px;
+				letter-spacing: 3px;
+			}
+		}
+	}
+	.clickMe {
+		visibility: hidden;
+	}
+	}	
+	/*----------------------------------------------------------
+	return to top
+	----------------------------------------------------------*/
+		#return_top {
+		position: relative;
+		width: 100%;
+		top: 170px;
+		margin: 0 auto;
+		padding-top:182px;
+		a {
+			width: 100%;
+			height: 112px;
+			background-size: 50px;
+			position:absolute;
+			top: 0;
+			border: none;
+			span {
+				font-size: 12px;
+				top: 60px;
+			}
+		}
+		}
+
+	/*----------------------------------------------------------------------------
+	Footer
+	--------------------------------------------------------------------------*/
+	.footerContainer {
+	width: 100%;
+	.upperContainer {
+			width: 100%;
+			height: 500px;
+			display: flex;
+			flex-direction: column-reverse;
+			.logo {
+				height: 100px;
+				.one {
+					width: 10%;
+					img {
+						// width: 100%;
+						position: relative;
+						left: 20%;
+					}
+				}
+			}
+			ul {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0px;
+				padding-top: 50px;
+				margin: 0 auto;
+				// border: 1px solid red;
+				li {
+					width: 100%;
+					text-align: center;
+					// vertical-align: middle;
+					// border: 1px solid red;
+					&::after {
+					content: "";
+					display: block;
+					width: 100%;
+					border-bottom: 1px dotted #fff;
+					}
+
+					a {
+						font-size: 16px;
+						font-weight: 300;
+						position: relative;
+						top: -30px;
+					}
+				}
+			}
+
+		}
+		.copyRight {
+			font-size: 11px;
+		}
+	}
+
+	/*----------------------------------------------------
+	Contact page
+	----------------------------------------------------*/
+	.contact {
+		width: 100%;
+		position: relative;
+		header {
+			height: 0px;
+			background-image: none;
+
+
+			#top_to_bottom {
+				z-index: 0;
+			}
+		}
+		.headerMenu {
+			width: 100%;
+			position: fixed;
+			top: -1px;
+			height: 80px;
+			.logo {
+				display: flex;
+				position: absolute;
+				top: 0px;
+				.one {
+					position: relative;
+					top: 2px;
+					img {
+						width: 32px;
+						height: 32px;
+					}
+				}
+			}
+			.clickShowMenu {
+				top: 70px;
+				div {
+					img {
+						width: 100%;
+					}
+				}
+				ul {
+					li {
+						a {
+							font-size: 24px;
+						}
+					}
+				}
+			}
+			.hamburgerMenuContainer {
+				margin-top: 15px;
+			}
+		}
+		.coverContact {
+			// width: 100%;
+			height: 375px;
+			margin-top: 0;
+			background: url("../img/top/contact_sp_bg_img.png")no-repeat center;
+			background-size: cover;
+			// border: 1px solid red;
+			margin-bottom: 50px;
+			margin-top: 78px;
+			.overText {
+				font-size: 24px;
+				line-height: 1.3;
+				position: relative;
+				top: 49%;
+				left: 50%;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				-webkit-transform: translate(-50%,-50%);
+				transform: translate(-50%,-50%);
+				text-align: center;
+				letter-spacing: 12px;
+				color: #fff;
+			}
+		}
+		.contactCover {
+			img {
+				width: 100%;
+				// height: 340px;
+			}
+		}
+		.contactTitleText {
+			width: 95%;
+			margin: 0 auto;
+			font-size: 24px;
+			font-weight: 700;
+			text-align: center;
+			letter-spacing: 5px;
+		}
+		.underHeaderText {
+			width: 95%;
+			height: 90%;
+			margin: 0 auto;
+			padding-top: 15px;
+			padding-bottom: 10px;
+			position: relative;
+			p {
+			letter-spacing: 2.5px;
+			font-size: 16px;
+			line-height: 28px;
+			text-align: justify;
+			font-weight: 200;
+			}
+			&::before {
+				top: -90%;
+				left: 50%;
+				font-size: 24px;
+				display: none;
+			}
+		}
+		.contactFormBox {
+			width: 95%;
+			padding-top: 0px;
+			margin: 0 auto;
+			padding-bottom: 70px;
+			.formBoxContainer {
+				width: 100%;
+				border: none;
+				margin: 0 auto;
+				box-shadow: none;
+				.upper {
+					width:100% ;
+					height: 499px;
+					margin: 0 auto;
+					margin-bottom: 30px;
+					.formBox {
+						h3 {
+							font-weight: 700;
+							margin: 15px 0px;
+						}
+						.inputForm {
+							width: 100%;
+							height: 50px;
+							box-sizing: border-box;
+							outline: none;
+							border: 1px solid #707070;
+						}
+					}
+				}
+				.middleContainer {
+					margin: 0px;
+					// .middleOne {
+					// 	width: 95%;
+					// 	height: 157px;
+					// 	margin-bottom: 30px;
+					// 	margin: 0 auto;
+					// 	h1 {
+					// 	width: 90%;
+					// 	margin: 0 auto;
+					// 	text-align: center;
+					// 	padding-bottom: 0px;
+
+					// 	}
+					// 	.radioBox {
+					// 		width: 85%;
+					// 		margin: 0 auto;
+					// 		height: 98px;
+					// 		display: flex;
+					// 		flex-direction: column;
+					// 		div {
+					// 			width: 70%;
+					// 			margin: 0 auto;
+					// 		}
+					// 	}
+					// }
+					.extention ,
+					.clickShowCheckBox {
+						width: 100%;
+						.titleText {
+							h1 {
+								letter-spacing: 0px;
+							}
+							span {
+								font-size: 16px;
+								letter-spacing: 0px;
+							}
+						}
+						.checkBoxContainer {
+							display: flex;
+							flex-direction: column;
+							padding-left: 60px;
+						}
+					}
+					.middleTwo {
+						width: 100%;
+						height: 244px;
+						margin: 0 auto;
+						margin-bottom: 50px;
+						textarea {
+							width: 100%;
+							resize: none;
+							box-sizing: border-box;
+							border: 1px solid #707070;
+						}
+					}
+					.middleThree {
+						width: 100%;
+						height: 144px;
+						margin-top: 30px;
+						div {
+							width: 100%;
+							height: 50%;
+							box-sizing: border-box;
+						}
+					}
+					.last {
+						width: 90%;
+						margin: 0 auto;
+						.btn {
+							width: 100%;
+							div {
+								width: 100%;
+								margin: 0 auto;
+								height: 70px;
+								margin-top: 20px;
+								&:first-child {
+									background: #211919;
+								}
+							}	
+						}
+					}
+				}
+			}
+		}
+		footer {
+			.contactOnly {
+				visibility: visible;
+			}
+		}
 	}
 
 }
